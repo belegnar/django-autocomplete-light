@@ -8,6 +8,7 @@ from dal.widgets import (
 )
 
 from django import forms
+from django.conf import settings
 from django.utils import six
 
 
@@ -25,8 +26,9 @@ class Select2WidgetMixin(object):
         }
         js = (
             'autocomplete_light/jquery.init.js',
-            'autocomplete_light/autocomplete.init.js',
             'autocomplete_light/vendor/select2/dist/js/select2.full.js',
+            'autocomplete_light/vendor/select2/dist/js/i18n/{}.js'.format(settings.LANGUAGE_CODE.split("-")[0]),
+            'autocomplete_light/autocomplete.init.js',
             'autocomplete_light/select2.js',
         )
 
